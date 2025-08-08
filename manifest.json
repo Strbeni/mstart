@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Custom Startpage",
+  "version": "1.0",
+  "description": "My custom new tab page.",
+  "chrome_url_overrides": {
+    "newtab": "startpage.html"
+  },
+  "permissions": [],
+  "web_accessible_resources": [
+    {
+      "resources": ["wallhaven-og97jp.jpg"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

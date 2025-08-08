@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./startpage.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="/yotsuba.ico" type="image/x-icon">
+  <title>Minimal Startpage</title>
+</head>
+<body>
+
+  <div class="clock">
+  </div>
+  
+  <div class="clockoptions">
+    <div class="fonts">
+      <label for="selectFont">Fonts:</label>
+      <select name="selectFont" id="selectFont">
+        <option value="cinzel">Cinzel</option>
+        <option value="sansserif">Sans Serif</option>
+        <option value="bitcount">bitcount</option>
+      </select>
+    </div>
+    <div class="weight">
+      <label for="weight">weight: </label>
+      <input type="range" name="weight" id="weight">
+    </div>
+  </div>
+
+  <div class="search-container">
+    <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+      <span id="engineLabel">g/</span>
+      
+      <input id="searchInput" class="input-wrapper" placeholder="::" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+    </div>
+    <div id="cardsContainer" class="cards"></div>
+  </div>
+
+
+  <script src="./startpage.js"></script>
+</body>
+</html>
