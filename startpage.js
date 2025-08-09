@@ -1,5 +1,6 @@
 window.addEventListener("DOMContentLoaded",()=>{
     
+
     const searchInput = document.getElementById('searchInput');
     // searchInput.focus();
     const clockdiv = document.querySelector('.clock');
@@ -7,6 +8,9 @@ window.addEventListener("DOMContentLoaded",()=>{
     const cardsContainer = document.getElementById('cardsContainer');
     const engineLabel = document.getElementById('engineLabel');
 
+    const img = document.querySelector('.bgi');
+    const colorThief = new ColorThief();
+    const palletes = colorThief.getPalette(img,6)
 
     //Time Update Fuctionn
     const updateClock = () => {
@@ -43,11 +47,12 @@ window.addEventListener("DOMContentLoaded",()=>{
       mangareader: 'https://mangareader.to',
     };
 
-    let currentEngine = ['g','y','m']; // g for Google, y for YouTube
+    let currentEngine = ['g','d','y','m']; // g for Google, y for YouTube
     let engineIndex = 0;
     let selectEngine = currentEngine[0]
     let suggestions = [];
     let suggestionIndex = 0;
+
 
     const createCards = () => {
       cardsContainer.innerHTML = '';
@@ -55,6 +60,10 @@ window.addEventListener("DOMContentLoaded",()=>{
         const card = document.createElement('div');
         card.className = 'card';
         card.textContent = key;
+        // let rgbValueCard = `rgb(${palletes[4][0]},${palletes[4][1]},${palletes[4][2]})`
+        // card.style.backgroundColor = rgbValueCard;
+        card.style.backdropFilter = `blur(50px)`;
+        // card.style.color = "invert(100%)";
         card.onclick = () => window.location.href = links[key];
         cardsContainer.appendChild(card);
       });
@@ -74,6 +83,8 @@ window.addEventListener("DOMContentLoaded",()=>{
     const searchEngine = (currEngine, query)=>{
         if(currEngine === 'g'){
             return `https://www.google.com/search?q=${encodeURIComponent(query)}`
+        }else if( currEngine === 'd'){
+            return `https://duckduckgo.com/?q=${encodeURIComponent(query)}`
         }else if( currEngine === 'y'){
             return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
         }else if(currEngine === "m"){

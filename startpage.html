@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./startpage.css">
+  <link rel="stylesheet" href="./pallete.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
@@ -24,6 +24,9 @@
         <option value="bitcount">bitcount</option>
       </select>
     </div>
+
+    <img class="bgi" src="/assets/bg1.jpg" alt="">
+
     <div class="weight">
       <label for="weight">weight: </label>
       <input type="range" name="weight" id="weight">
@@ -33,13 +36,17 @@
   <div class="search-container">
     <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
       <span id="engineLabel">g/</span>
-      
       <input id="searchInput" class="input-wrapper" placeholder="::" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
     </div>
     <div id="cardsContainer" class="cards"></div>
   </div>
+  
+  <div class="themePalette">
+    
+  </div>
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+  <script src="./pallete.js"></script>
   <script src="./startpage.js"></script>
 </body>
 </html>
