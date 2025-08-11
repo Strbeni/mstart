@@ -3,8 +3,8 @@ const img = document.querySelector('.bgi');
 // const palletesContainer = document.querySelector('.colors');
 const searchInput = document.getElementById('searchInput');
 const themePalette = document.querySelector('.themePalette');
+const inputBox = document.querySelector('.input-wrapper');
 const clockdiv = document.querySelector('.clock');
-// const cardd = document.querySelectorAll('.card');
     // Make sure image is finished loading
 
 if (img.complete) {
@@ -27,13 +27,29 @@ themePalette.innerHTML = '';
 
 clockdiv.style.color = `rgb(${palletes[1][0]},${palletes[1][1]},${palletes[1][2]})`;
 
+
+
+function changeColor(colorValue){
+    console.log(colorValue);
+
+}
+
+
+
 palletes.forEach(pallete => {
     let colorDiv = document.createElement('div');
     colorDiv.classList.add('pcolors')
     let colValue = `rgb(${pallete[0]},${pallete[1]},${pallete[2]})`
     colorDiv.style.backgroundColor = colValue;
+    colorDiv.addEventListener('click',()=>{
+        const cardd = document.querySelectorAll('.card');
+        cardd.forEach(card => {
+            card.style.backgroundColor = colValue;
+        })
+        clockdiv.style.color = colValue;
+        inputBox.style.backgroundColor = colValue;
+    })
     themePalette.appendChild(colorDiv);
-    console.log(pallete);
 });
 
-
+console.log(img.scroll.name);
