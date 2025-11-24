@@ -9,6 +9,12 @@ const clockdiv = document.querySelector('.clock');
 // Can be called with a custom image element or defaults to the .bgi element
 function generatePalette(imageElement = img) {
     try {
+        // Check if image is loaded and has valid dimensions
+        if (!imageElement.complete || imageElement.naturalWidth === 0) {
+            console.warn('Image not loaded yet, skipping palette generation');
+            return;
+        }
+
         const palletes = colorThief.getPalette(imageElement, 6);
 
         const opacity = 0.2;
@@ -43,10 +49,14 @@ function generatePalette(imageElement = img) {
 window.generatePalette = generatePalette;
 
 // Make sure image is finished loading
-if (img.complete) {
+if (img.complete && img.naturalWidth > 0) {
     generatePalette();
 } else {
     img.addEventListener('load', function () {
         generatePalette();
+    });
+    // Add error handler in case image fails to load
+    img.addEventListener('error', function () {
+        console.error('Failed to load background image');
     });
 }
