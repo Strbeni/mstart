@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pallete.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="/yotsuba.ico" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Cinzel:wght@400..900&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="./assets/yotsuba.ico" type="image/x-icon">
   <title>Minimal Startpage</title>
 </head>
+
 <body>
 
   <div class="clock">
   </div>
-  
+
   <div class="clockoptions">
     <div class="fonts">
       <label for="selectFont">Fonts:</label>
@@ -25,29 +29,49 @@
       </select>
     </div>
 
-    <img class="bgi" src="/assets/bg2.jpg" alt="">
+    <img class="bgi" src="./assets/bg2.jpg" alt="" crossorigin="anonymous">
 
     <div class="weight">
       <label for="weight">weight: </label>
-      <input type="range" name="weight" id="weight">
+      <input type="range" name="weight" id="weight" min="100" max="900" step="100">
+    </div>
+
+    <!-- Wallpaper Upload Controls -->
+    <div class="wallpaper-controls">
+      <label>Custom Wallpaper:</label>
+
+      <input type="file" id="wallpaperFile" accept="image/*" style="display: none;">
+      <button id="uploadFileBtn" class="wallpaper-btn" onclick="document.getElementById('wallpaperFile').click();">📁
+        Upload File</button>
+
+      <div class="url-input-group">
+        <input type="text" id="wallpaperUrl" placeholder="Image URL" class="url-input">
+        <button id="applyUrlBtn" class="wallpaper-btn">✓</button>
+      </div>
+
+      <button id="resetWallpaper" class="wallpaper-btn reset-btn">↻ Reset</button>
     </div>
   </div>
 
   <div class="search-container">
     <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
       <span id="engineLabel">g/</span>
-      <input id="searchInput" class="input-wrapper" placeholder="::" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input id="searchInput" class="input-wrapper" placeholder="::" autofocus autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false" />
     </div>
     <div id="cardsContainer" class="cards"></div>
   </div>
-  
+
   <div class="themePalette">
-    
+
   </div>
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script> -->
   <script src="libs/color-thief.umd.js"></script>
+  <script src="./settings-manager.js"></script>
   <script src="./startpage.js"></script>
   <script src="./pallete.js"></script>
+  <script src="./wallpaper-upload.js"></script>
 </body>
+
 </html>

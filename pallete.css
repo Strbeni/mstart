@@ -5,11 +5,9 @@
     font-family: 'Courier New', monospace;
 }
 
-:root{
+:root {}
 
-}
-
-.bgi{ 
+.bgi {
     display: none;
 }
 
@@ -24,7 +22,7 @@ body {
     font-size: 16px;
     background: url("./assets/bg4.jpg");
     background-size: cover;
-    background-position:right;
+    background-position: right;
     /* backdrop-filter: blur(5px); */
     /* object-fit: fill; */
     flex-direction: column;
@@ -32,7 +30,7 @@ body {
 
 .search-container {
     position: relative;
-    
+
 }
 
 .input-wrapper {
@@ -93,19 +91,19 @@ body {
     font-weight: 400;
     font-size: 3rem;
     color: rgb(177, 99, 99);
-    cursor:pointer;
+    cursor: pointer;
 }
 
 /* smooth hover zoom in and zoom out */
 
 .clock:hover {
-    transform:scale(1.05);
+    transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
 
 .clock:active {
-    transform:scale(0.999);
-    transition:transform 0.1s ease-in-out;
+    transform: scale(0.999);
+    transition: transform 0.1s ease-in-out;
     user-select: none;
 }
 
@@ -137,7 +135,7 @@ body {
     transition: background 0.3s ease-in-out;
 }
 
-.show{
+.show {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
@@ -150,7 +148,7 @@ body {
 
 /* color of range bar */
 
-#weight{
+#weight {
     font-weight: 200;
     font-size: 1.2rem;
     color: white;
@@ -167,7 +165,7 @@ body {
     border-radius: 50%;
     /* justify-content: center;
     align-items: center;    */
-    padding: 10px; 
+    padding: 10px;
 }
 
 .themePalette {
@@ -183,4 +181,77 @@ body {
     align-items: center;
     justify-content: center;
     gap: 5px;
+}
+
+/* Wallpaper Upload Controls */
+.wallpaper-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.wallpaper-controls label {
+    color: rgb(0, 0, 0);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.wallpaper-btn {
+    background: rgba(178, 225, 243, 0.9);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+}
+
+.wallpaper-btn:hover {
+    background: rgba(178, 225, 243, 1);
+    transform: translateY(-1px);
+}
+
+.wallpaper-btn:active {
+    transform: translateY(0);
+}
+
+.reset-btn {
+    background: rgba(243, 178, 178, 0.9);
+}
+
+.reset-btn:hover {
+    background: rgba(243, 178, 178, 1);
+}
+
+.url-input-group {
+    display: flex;
+    gap: 5px;
+}
+
+.url-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.url-input:focus {
+    background: rgba(255, 255, 255, 1);
+}
+
+.url-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
 }
