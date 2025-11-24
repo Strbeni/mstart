@@ -48,15 +48,32 @@ function generatePalette(imageElement = img) {
 // Make palette generation function globally accessible
 window.generatePalette = generatePalette;
 
-// Make sure image is finished loading
-if (img.complete && img.naturalWidth > 0) {
-    generatePalette();
-} else {
-    img.addEventListener('load', function () {
+// Wait for the image to load before generating palette
+function initializePalette() {
+    // Check if image exists and has valid source
+    if (!img || !img.src) {
+        console.warn('No background image found, palette generation skipped');
+        return;
+    }
+
+    // Make sure image is finished loading
+    if (img.complete && img.naturalWidth > 0) {
         generatePalette();
-    });
-    // Add error handler in case image fails to load
-    img.addEventListener('error', function () {
-        console.error('Failed to load background image');
-    });
+    } else {
+        img.addEventListener('load', function () {
+            generatePalette();
+        });
+        // Add error handler in case image fails to load
+        img.addEventListener('error', function () {
+            console.error('Failed to load background image. Palette will be generated when wallpaper is uploaded.');
+        });
+    }
+}
+
+// Initialize palette when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePalette);
+} else {
+    // DOM already loaded
+    initializePalette();
 }
