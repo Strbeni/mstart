@@ -52,4 +52,4 @@ palletes.forEach(pallete => {
     themePalette.appendChild(colorDiv);
 });
 
-console.log(img.scroll.name);
+console.log(img.scroll);
